@@ -6,10 +6,11 @@
 // @author       jemonjam
 // @include      http*://cheesellc.com/kol/profile.php*
 // @include      http*://bumcheekcity.com/kol/profile.php*
-// @grant        none
+// @grant        GM_log
+// @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 
-var unobtainable = [
+var unobtainableItems = [
     // Very expensive skills
     'Summon Snowcones',
     'Summon Stickers',
@@ -44,7 +45,7 @@ var unobtainable = [
 
     // Dump stupid expensive trophies
     '50 bottles of Bloodweiser',
-    '50 glasses of electric Kool-Aid',
+    '50 glasses of electric Kool-Aid.',
 
     // >50mil meat IOTMs
     'Coffee Pixie',
@@ -105,8 +106,52 @@ var unobtainable = [
     'Uncle Hobo\'s belt',
 
     // >80mil meat IOTMs
+    'Dark Jill-O-Lantern',
+    'hand turkey outline',
+    'crimbo elfling',
     'orphan baby yeti',
     'silk garter snake',
+    'lucky Tam O\'Shanter',
+    'emo roe',
+    'personal raindrop',
+    'miniature gravy-covered maypole',
+    'deflated inflatable dodecapede',
+    'wax lips',
+    'pygmy bugbear shaman',
+    'Jekyllin hide belt',
+    'doppelshifter egg',
+    'miniscule temporal rip',
+    'sweet nutcracker',
+    'Tome of Snowcone Summoning',
+    'iceberglet',
+    'March hat',
+    'McPhee\'s Grimoire of Hilarious Object Summoning',
+    'homeless hobo spirit',
+    'astral badger',
+    'jewel-eyed wizard hat',
+    'Comma Chameleon egg',
+    'travoltan trousers',
+    'plastic pumpkin bucket',
+    'pilgrim shield',
+    'yuletide troll chrysalis',
+    'Great Ball of Frozen Fire',
+    'Libram of Candy Heart Summoning',
+    'dandy lion cub',
+    'bad penguin egg',
+    'Mayflower bouquet',
+    'bottled green pixie',
+    'bottle-rocket crossbow',
+    'wizard action figure',
+    'navel ring of navel gazing',
+    'class five ecto-larva',
+    'V for Vivala mask',
+    'Crimbo P. R. E. S. S. I. E.',
+    'Libram of Divine Favors',
+    'naughty origami kit',
+    'sane hatrack',
+    'Sp\'n-Zor\'s Grimoire of "Tasteful Gifts"',
+    'llama lama cria',
+    'little box of fireworks',
     // ...
 
     // Underworld
@@ -185,3 +230,12 @@ var unobtainable = [
     'Uovo Marcio Shiraz',
     'White-label gin'
 ];
+
+$('td[style]').filter(function() {
+    // If not obtained, and in the unobtainable list, return it.
+    var background_color = $(this).css('background-color');
+    var unobtained = background_color === 'rgba(0, 0, 0, 0)' || background_color === 'rgb(255, 204, 204)';
+    var unobtainable = unobtainableItems.indexOf($(this).text()) > -1;
+    
+    return unobtained && unobtainable;
+}).addClass('unobtainable').css({'background-color': 'rgb(204, 255, 204)', 'opacity': '0.6'});
