@@ -7,6 +7,7 @@
 // @include      http*://cheesellc.com/kol/profile.php*
 // @include      http*://bumcheekcity.com/kol/profile.php*
 // @grant        GM_log
+// @grant        GM_addStyle
 // @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 
@@ -355,6 +356,7 @@ var prettyCheapItems = [
 ];
 
 var all = prettyCheapItems + expensiveItems + veryExpensiveItems + extremelyExpensiveItems + unobtainableItems;
+GM_addStyle('.unobtainable { background-color: rgb(204, 255, 204); opacity: 0.6; }');
 
 $('td[style]').filter(function() {
     // If not obtained, and in the unobtainable list, return it.
@@ -363,4 +365,4 @@ $('td[style]').filter(function() {
     var unobtainable = $(this).text() && all.indexOf($(this).text()) > -1;
     
     return unobtained && unobtainable;
-}).addClass('unobtainable').css({'background-color': 'rgb(204, 255, 204)', 'opacity': '0.6'});
+}).addClass('unobtainable').removeAttr('style');
