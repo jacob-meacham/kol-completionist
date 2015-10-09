@@ -10,6 +10,19 @@
 // @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 
+// >80mm 
+var extremelyExpensiveItems = [
+];
+
+// >30mm
+var veryExpensiveItems = [
+];
+
+// > 10mm
+var expensiveItems = [
+];
+
+// Totall unobtainable
 var unobtainableItems = [
     // Very expensive skills
     'Summon Snowcones',
@@ -152,7 +165,42 @@ var unobtainableItems = [
     'Sp\'n-Zor\'s Grimoire of "Tasteful Gifts"',
     'llama lama cria',
     'little box of fireworks',
-    // ...
+    'cotton candy cocoon',
+    'haiku katana',
+    'spooky rattling cigar box',
+    'Tome of Sticker Summoning',
+    'candy cornucopia',
+    'container of Spooky Putty',
+    'Libram of Love Songs',
+    'Apathargic Bandersnatch',
+    'elvish sunglasses',
+    'infant sandworm',
+    'Bag o\' Tricks',
+    'Tome of Sugar Shummoning',
+    'squamous polyp',
+    'moveable feast',
+    'suspicious stocking',
+    'stinky cheese ball',
+    'Libram of BRICKOs',
+    'crown of thrones',
+    'Juju Mojo Mask',
+    'Greatest American Pants',
+    'hibernating robot reindeer',
+    'Loathing Legion knife',
+    'Operation Patriot Shield',
+    'Cheshire Bitten',
+    'coffee sprite',
+    'calm attention-deficit demon',
+    'nervous tick egg',
+    'jitterbug larva',
+    'unemployed hunchbacked minion',
+    'siesta-ing Casagnova gnome',
+    'uniclops egg',
+    'passed-out psychedelic bear',
+    'hungover chauvinist pig',
+    'perfectly ordinary frog',
+    'rehearsing dramatic hedgehog',
+    'sleeping piano cat',
 
     // Underworld
     'Underworld truncheon',
