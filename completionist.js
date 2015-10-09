@@ -8,6 +8,8 @@
 // @include      http*://bumcheekcity.com/kol/profile.php*
 // @grant        GM_log
 // @grant        GM_addStyle
+// @grant        GM_getValue
+// @grant        GM_setValue
 // @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 
@@ -355,14 +357,61 @@ var prettyCheapItems = [
     'Summon Love Song'
 ];
 
-var all = prettyCheapItems + expensiveItems + veryExpensiveItems + extremelyExpensiveItems + unobtainableItems;
-GM_addStyle('.unobtainable { background-color: rgb(204, 255, 204); opacity: 0.6; }');
+var allItems = [unobtainableItems, extremelyExpensiveItems, veryExpensiveItems, expensiveItems, prettyCheapItems];
+var currentItemSet = [];
+var selectedValue = GM_getValue('cmplnst.selector', 3);
 
-$('td[style]').filter(function() {
-    // If not obtained, and in the unobtainable list, return it.
-    var background_color = $(this).css('background-color');
-    var unobtained = background_color === 'rgba(0, 0, 0, 0)' || background_color === 'rgb(255, 204, 204)';
-    var unobtainable = $(this).text() && all.indexOf($(this).text()) > -1;
+function updateSelectedItemSet(selected_value) {
+    selectedValue = selected_value;
+    GM_setValue('cmplnst.selector', selectedValue);
     
-    return unobtained && unobtainable;
-}).addClass('unobtainable').removeAttr('style');
+    currentItemSet = [];
+    for (var i = 0; i < selected_value; i++) {
+        currentItemSet += allItems[i];
+    }
+    
+    runFilter();
+}
+
+function addSettingsPane() {    
+    var select_values = ['Off',
+                         'Unobtainable Only',
+                         '>100 Million Cost',
+                         '>50 Million Cost',
+                         '>30 Million Cost',
+                         '>10 Million Cost'];
+    
+    var completionist_pane = $('<div class="cmplnst-pane" />').appendTo('.header');
+    $('<div class="cmplnst-header" />').text('Completionist Script').appendTo(completionist_pane);
+    var inner = $('<div class="cmplnst-inner" />').appendTo(completionist_pane);
+    
+    $('<label for="cmplnst-selection" />').text('Filter: ').appendTo(inner);
+    var selector = $('<select name="cmplnst-selection" />');
+    selector.appendTo(inner).change(function() { updateSelectedItemSet(selector.val()) });
+    for (var i = 0; i < select_values.length; i++) {
+        var option = $('<option />', {value: i, text: select_values[i]}).appendTo(selector);
+    }
+    
+    selector.val(selectedValue);
+};
+
+addSettingsPane();
+updateSelectedItemSet(selectedValue);
+
+GM_addStyle('.cmplnst-pane { float: right; padding: 3px; border: #ddd 1px solid; font-size: 0.8em; }' +
+            '.cmplnst-header { padding-bottom: 5px; text-align: right }' +
+            '.cmplnst-inner { padding: 10px; }' +
+            '.cmplnst-unobtainable { background-color: rgb(204, 255, 204); opacity: 0.6; }'
+           );
+            
+
+function runFilter() {
+    $('td').removeClass('cmplnst-unobtainable').filter(function() {
+        // If not obtained, and in the unobtainable list, return it.
+        var background_color = $(this).css('background-color');
+        var unobtained = background_color === 'rgba(0, 0, 0, 0)' || background_color === 'rgb(255, 204, 204)';
+        var unobtainable = $(this).text() && currentItemSet.indexOf($(this).text()) > -1;
+    
+        return unobtained && unobtainable;
+    }).addClass('cmplnst-unobtainable').removeAttr('style');
+}
