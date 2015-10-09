@@ -10,32 +10,9 @@
 // @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 
-// >80mm 
-var extremelyExpensiveItems = [
-];
-
-// >30mm
-var veryExpensiveItems = [
-];
-
-// > 10mm
-var expensiveItems = [
-];
-
-// Totall unobtainable
+// Totally unobtainable
 var unobtainableItems = [
-    // Very expensive skills
-    'Summon Snowcones',
-    'Summon Stickers',
-    'Summon Sugar Sheets',
-    'Summon Party Favor',
-    'Summon Love Song',
-    'Summon BRICKOs',
-    'Summon Dice',
-    'Summon Hilarious Objects',
-
     // Unobtainable Tattoos
-    'Uncle Hobo\'s Rags',
     'AWOL I',
     'AWOL II',
     'AWOL III',
@@ -56,161 +33,11 @@ var unobtainableItems = [
     'Defeat 100 Reindeer',
     'No Pants on 1st Jan 2006',
 
-    // Dump stupid expensive trophies
-    '50 bottles of Bloodweiser',
-    '50 glasses of electric Kool-Aid.',
-
-    // >50mil meat IOTMs
-    'Coffee Pixie',
-    'Cheshire Bat',
-    'Jill-O-Lantern',
-    'Hand Turkey',
-    'Crimbo Elf',
-    'Hanukkimbo Dreidl',
-    'Baby Yeti',
-    'Feather Boa Constrictor',
-    'Emo Squid',
-    'Personal Raincloud',
-    'Inflatable Dodecapede',
-    'Pygmy Bugbear Shaman',
-    'Doppelshifter',
-    'Attention-Deficit Demon',
-    'Wild Hare',
-    'Cymbal-Playing Monkey',
-    'Temporal Riftlet',
-    'Sweet Nutcracker',
-    'Wild Hare',
-    'Spirit Hobo',
-    'Astral Badger',
-    'Comma Chameleon',
-    'Jitterbug',
-    'Nervous Tick',
-    'Ancient Yuletide Troll',
-    'Dandy Lion',
-    'Green Pixie',
-    'Wizard Action Figure',
-    'Gluttonous Green Ghost',
-    'Casagnova Gnome',
-    'Hunchbacked Minion',
-    'Mad Hatrack',
-    'Cotton Candy Carnie',
-    'Disembodied Hand',
-    'Uniclops',
-    'Psychedelic Bear',
-    'Sugar Fruit Fairy',
-    'Frumious Bandersnatch',
-    'Baby Sandworm',
-    'Squamous Gibberer',
-    'Dancing Frog',
-    'Chauvinist Pig',
-    'Stocking Mimic',
-    'Underworld Bonsai',
-    'Hippo Ballerina',
-    'Piano Cat',
-    'Dramatic Hedgehog',
-    'Robot Reindeer',
-
-    // Uncle Hobo
-    'Uncle Hobo\'s gift baggy pants',
-    'Uncle Hobo\'s epic beard',
-    'Uncle Hobo\'s stocking cap',
-    'Uncle Hobo\'s fingerless tinsel gloves',
-    'Uncle Hobo\'s highest bough',
-    'Uncle Hobo\'s belt',
-
-    // >80mil meat IOTMs
-    'Dark Jill-O-Lantern',
-    'hand turkey outline',
-    'crimbo elfling',
-    'orphan baby yeti',
-    'silk garter snake',
-    'lucky Tam O\'Shanter',
-    'emo roe',
-    'personal raindrop',
-    'miniature gravy-covered maypole',
-    'deflated inflatable dodecapede',
-    'wax lips',
-    'pygmy bugbear shaman',
-    'Jekyllin hide belt',
-    'doppelshifter egg',
-    'miniscule temporal rip',
-    'sweet nutcracker',
-    'Tome of Snowcone Summoning',
-    'iceberglet',
-    'March hat',
-    'McPhee\'s Grimoire of Hilarious Object Summoning',
-    'homeless hobo spirit',
-    'astral badger',
-    'jewel-eyed wizard hat',
-    'Comma Chameleon egg',
-    'travoltan trousers',
-    'plastic pumpkin bucket',
-    'pilgrim shield',
-    'yuletide troll chrysalis',
-    'Great Ball of Frozen Fire',
-    'Libram of Candy Heart Summoning',
-    'dandy lion cub',
-    'bad penguin egg',
-    'Mayflower bouquet',
-    'bottled green pixie',
-    'bottle-rocket crossbow',
-    'wizard action figure',
-    'navel ring of navel gazing',
-    'class five ecto-larva',
-    'V for Vivala mask',
-    'Crimbo P. R. E. S. S. I. E.',
-    'Libram of Divine Favors',
-    'naughty origami kit',
-    'sane hatrack',
-    'Sp\'n-Zor\'s Grimoire of "Tasteful Gifts"',
-    'llama lama cria',
-    'little box of fireworks',
-    'cotton candy cocoon',
-    'haiku katana',
-    'spooky rattling cigar box',
-    'Tome of Sticker Summoning',
-    'candy cornucopia',
-    'container of Spooky Putty',
-    'Libram of Love Songs',
-    'Apathargic Bandersnatch',
-    'elvish sunglasses',
-    'infant sandworm',
-    'Bag o\' Tricks',
-    'Tome of Sugar Shummoning',
-    'squamous polyp',
-    'moveable feast',
-    'suspicious stocking',
-    'stinky cheese ball',
-    'Libram of BRICKOs',
-    'crown of thrones',
-    'Juju Mojo Mask',
-    'Greatest American Pants',
-    'hibernating robot reindeer',
-    'Loathing Legion knife',
-    'Operation Patriot Shield',
-    'Cheshire Bitten',
-    'coffee sprite',
-    'calm attention-deficit demon',
-    'nervous tick egg',
-    'jitterbug larva',
-    'unemployed hunchbacked minion',
-    'siesta-ing Casagnova gnome',
-    'uniclops egg',
-    'passed-out psychedelic bear',
-    'hungover chauvinist pig',
-    'perfectly ordinary frog',
-    'rehearsing dramatic hedgehog',
-    'sleeping piano cat',
-
     // Underworld
     'Underworld truncheon',
     'Staff of the Woodfire',
     'Underworld flail',
-
-    // Expensive smithing discoveries
-    'Crimbo hat',
-    'Crimbo pants',
-    'Crimbo sword',
+    'Underworld Bonsai',
 
     // Unobtainable food
     'Banana-frosted king cake',
@@ -279,11 +106,261 @@ var unobtainableItems = [
     'White-label gin'
 ];
 
+// >100mm 
+var extremelyExpensiveItems = [
+    // IOTM
+    'miniscule temporal rip',
+    'lucky Tam O\'Shanter',
+    'hungover chauvinist pig',
+    'March hat',
+    'doppelshifter egg',
+    'McPhee\'s Grimoire of Hilarious Object Summoning',
+    'nervous tick egg',
+    'personal raindrop',
+    'uniclops egg',
+    'deflated inflatable dodecapede',
+    'airplane charter: Conspiracy Island',
+    'coffee sprite',
+    'Clan shower',
+    'Cheshire Bitten',
+    'Tome of Snowcone Summoning',
+    'silk garter snake',
+    'emo roe',
+    'Dark Jill-O-Lantern',
+    'crimbo elfling',
+    'orphan baby yeti',
+    'hand turkey outline',
+
+
+    // Familiars from IOTM
+    'Coffee Pixie',
+    'Cheshire Bat',
+    'Jill-O-Lantern',
+    'Hand Turkey',
+    'Crimbo Elf',
+    'Hanukkimbo Dreidl',
+    'Baby Yeti',
+    'Feather Boa Constrictor',
+    'Emo Squid',
+    'Personal Raincloud',
+    'Inflatable Dodecapede',
+    'Pygmy Bugbear Shaman',
+    'Doppelshifter',
+    'Attention-Deficit Demon',
+    'Wild Hare',    
+    'Temporal Riftlet',
+    'Nervous Tick',
+    'Uniclops',
+    'Chauvinist Pig',
+    
+    // Dump stupid expensive trophies
+    '50 bottles of Bloodweiser',
+    '50 glasses of electric Kool-Aid.',
+    
+    // Expensive smithing discoveries
+    'Crimbo hat',
+    'Crimbo pants',
+    'Crimbo sword',
+    
+    // Skills from IOTM
+    'Summon Dice',
+    'Summon Hilarious Objects',
+    'Summon Snowcones',
+    'Summon Stickers'
+];
+
+// >50mm
+var veryExpensiveItems = [
+    // IOTM
+    'miniature gravy-covered maypole',
+    'Sneaky Pete\'s leather jacket',
+    'pygmy bugbear shaman',
+    'navel ring of navel gazing',
+    'passed-out psychedelic bear',
+    'suspicious stocking',
+    'jitterbug larva',
+    'Jekyllin hide belt',
+    'calm attention-deficit demon',
+    'hippo tutu',
+
+    // Familiars from IOTM
+    'Jitterbug',
+    'Psychedelic Bear',
+    'Pygmy Bugbear Shaman',
+    'Stocking Mimic',
+    'Hippo Ballerina',
+
+    // Uncle Hobo
+    'Uncle Hobo\'s gift baggy pants',
+    'Uncle Hobo\'s epic beard',
+    'Uncle Hobo\'s stocking cap',
+    'Uncle Hobo\'s fingerless tinsel gloves',
+    'Uncle Hobo\'s highest bough',
+    'Uncle Hobo\'s belt',
+    'Uncle Hobo\'s Rags',
+];
+
+// >30mm
+var expensiveItems = [
+    // IOTM
+    'GameInformPowerDailyPro subscription card',
+    'Apathargic Bandersnatch',
+    'Comma Chameleon egg',
+    'hibernating Grimstone Golem',
+    'can of Rain-Doh',
+    'unemployed hunchbacked minion',
+    'Clan speakeasy',
+    'dandy lion cub',
+    'astral badger',
+    'praying Grim Brother',
+    'Professor of Spelunkology',
+    'The Smith\'s Tome',
+    'homeless hobo spirit',
+    'unwound cymbal-playing monkey',
+    'golden monkey statuette',
+    'perfectly ordinary frog',
+    'Winter Garden Catalog',
+    'airplane charter: Dinseylandfill',
+    'V for Vivala mask',
+    'organ grinder',
+    'Olympic-sized Clan crate',
+    'dreaming Jung man',
+    'spooky rattling cigar box',
+    'class five ecto-larva',
+    'yellow puck',
+    'Libram of Divine Favors',
+    'avatar of the Unconscious Collective',
+
+    // Familiars from IOTM
+    'Frumious Bandersnatch',
+    'Comma Chameleon',
+    'Hunchbacked Minion',
+    'Astral Badger',
+    'Dandy Lion',
+    'Spirit Hobo',
+    'Dancing Frog',
+    'Cymbal-Playing Monkey',
+    'Gluttonous Green Ghost',
+    'Disembodied Hand',
+    
+    // Skills from IOTM
+    'Summon Party Favor'
+];
+
+// > 10mm
+var prettyCheapItems = [
+    // IOTM
+    'Crimbo P. R. E. S. S. I. E.',
+    'haiku katana',
+    'Bag o\' Tricks',
+    'panicked kernel',
+    'Sp\'n-Zor\'s Grimoire of "Tasteful" Gifts',
+    'Mayflower bouquet',
+    'Operation Patriot Shield',
+    'Juju Mojo Mask',
+    'Moping Artistic Goth Kid',
+    'plastic pumpkin bucket',
+    'hibernating robot reindeer',
+    'adventurer clone egg',
+    'Snow Suit',
+    'stuffed-shirt scarecrow',
+    'Small Medium',
+    'Unagnimated Gnome',
+    'stinky cheese ball',
+    'KoLHS Pep Squad Box',
+    'fist turkey outline',
+    'Tome of Clip Art',
+    'airplane charter: Spring Break Beach',
+    'Jarlsberg\'s pan',
+    'mysterious chest',
+    'Pete & Jackie\'s Dragon Tooth Emporium Catalog',
+    'Thor\'s Pliers',
+    'wizard action figure',
+    'Greatest American Pants',
+    'fairy-worn boots',
+    'deactivated nanobots',
+    'Libram of Pulled Taffy',
+    'Order of the Green Thumb Order Form',
+    'The Confiscator\'s Grimoire',
+    'Thinknerd\'s Grimoire of Geeky Gifts',
+    'Tome of Sugar Shummoning',
+    'glowing frisbee',
+    'Libram of Love Songs',
+    'Tome of Sticker Summoning',
+    'Grumpy Bumpkin\'s Pumpkin Seed Catalog',
+    'travoltan trousers',
+    'Make-Your-Own-Vampire-Fangs kit',
+    'llama lama cria',
+    'Mint Salton Pepper\'s Peppermint Seed Catalog',
+    'Libram of BRICKOs',
+    'Sorcerers of the Shore Grimoire',
+    'deanimated reanimator\'s coffin',
+    'Great Ball of Frozen Fire',
+    'jewel-eyed wizard hat',
+    'Crimbo sapling',
+    'Camp Scout backpack',
+    'My Own Pen Pal kit',
+    'Libram of Candy Heart Summoning',
+    'crown of thrones',
+    'Pantsgiving',
+    'moveable feast',
+    'sane hatrack',
+    'infant sandworm',
+    'portable Mayo Clinic',
+    'rehearsing dramatic hedgehog',
+    'Chateau Mantegna room key',
+    'container of Spooky Putty',
+    'squamous polyp',
+    'bottle of lovebug pheromones',
+    'Ed the Undying exhibit crate',
+    'packet of mayfly bait',
+    'naughty origami kit',
+    'bottle-rocket crossbow',
+    'a cute angel',
+    'wax lips',
+    'still grill',
+    'Buddy Bjorn',
+    'Schmalz\'s First Prize Beer',
+    'sleeping piano cat',
+    'The Groose in the Hoose',
+    'Libram of Resolutions',
+    'bottled green pixie',
+    'floaty stone sphere',
+    'siesta-ing Casagnova gnome',
+    'Loathing Legion knife',
+    'The Kloop in the Coop',
+    'Folder Holder',
+    'Boris\'s Helm',
+    'sweet nutcracker',
+    'Little Geneticist DNA-Splicing Lab',
+    'iceberglet',
+
+    // Familiars from IOTM
+    'Mad Hatrack',
+    'Sweet Nutcracker',
+    'Casagnova Gnome',
+    'Wizard Action Figure',
+    'Baby Sandworm',
+    'Squamous Gibberer',
+    'Robot Reindeer',
+    'Piano Cat',
+    'Dramatic Hedgehog',
+    'Green Pixie',
+    'Ancient Yuletide Troll',
+
+    // Skills from IOTM
+    'Summon BRICKOs',
+    'Summon Sugar Sheets',
+    'Summon Love Song'
+];
+
+var all = prettyCheapItems + expensiveItems + veryExpensiveItems + extremelyExpensiveItems + unobtainableItems;
+
 $('td[style]').filter(function() {
     // If not obtained, and in the unobtainable list, return it.
     var background_color = $(this).css('background-color');
     var unobtained = background_color === 'rgba(0, 0, 0, 0)' || background_color === 'rgb(255, 204, 204)';
-    var unobtainable = unobtainableItems.indexOf($(this).text()) > -1;
+    var unobtainable = $(this).text() && all.indexOf($(this).text()) > -1;
     
     return unobtained && unobtainable;
 }).addClass('unobtainable').css({'background-color': 'rgb(204, 255, 204)', 'opacity': '0.6'});
