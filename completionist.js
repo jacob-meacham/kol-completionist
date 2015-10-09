@@ -169,7 +169,11 @@ var extremelyExpensiveItems = [
     'Summon Dice',
     'Summon Hilarious Objects',
     'Summon Snowcones',
-    'Summon Stickers'
+    'Summon Stickers',
+    
+    // Ultrarares
+    'Counterclockwise watch',
+    'optimal spreadsheet'
 ];
 
 // >50mm
@@ -201,6 +205,13 @@ var veryExpensiveItems = [
     'Uncle Hobo\'s highest bough',
     'Uncle Hobo\'s belt',
     'Uncle Hobo\'s Rags',
+    
+    // Ultrarares
+    'Platinum Yendorian Express Card',
+    'The Nuge\'s favorite crossbow',
+    'hockey stick of furious angry rage',
+    'incredibly dense meat gem'
+    
 ];
 
 // >30mm
@@ -247,7 +258,13 @@ var expensiveItems = [
     'Disembodied Hand',
     
     // Skills from IOTM
-    'Summon Party Favor'
+    'Summon Party Favor',
+    
+    // Ultrarares
+    'Talisman of Baio',
+    'crazy bastard sword',
+    'Talisman of Bakula'
+    
 ];
 
 // > 10mm
@@ -354,7 +371,14 @@ var prettyCheapItems = [
     // Skills from IOTM
     'Summon BRICKOs',
     'Summon Sugar Sheets',
-    'Summon Love Song'
+    'Summon Love Song',
+    
+    // Ultra-rares
+    '17-ball',
+    'Dallas Dynasty Falcon Crest shield',
+    'hypnodisk',
+    
+    
 ];
 
 var allItems = [unobtainableItems, extremelyExpensiveItems, veryExpensiveItems, expensiveItems, prettyCheapItems];
