@@ -445,7 +445,7 @@ function runFilter() {
 
 function getSections() {
     // TODO: The non-labeled sections don't work because they don't have a subheading.
-    var sections = [{name: 'skills'}, /*{name: 'ultrarares'},*/ {name: 'trophies'}, {name: 'familiars'}
+    var sections = [{name: 'skills'}, /*{name: 'ultrarares'},*/ {name: 'trophies'}, {name: 'familiars'}, {name: 'tattoos'},
                     /*, {name: 'disc-smithing'}, {name: 'disc-consumption-food'}, name:{'disc-consumption-booze'}*/];
     for (var i = 0; i < sections.length; i++) {
         sections[i].element = $('a[name=' + sections[i].name + ']');
@@ -460,7 +460,17 @@ function updateLabels() {
     for (var i = 0; i < sections.length; i++) {
         // Reset the label text.
         sections[i].label.text(sections[i].labelText);
-        var num_unobtainable = sections[i].element.parent().nextAll('table').first().find('.cmplnst-unobtainable').length;
+        var tables_to_include = 1;
+        if (sections[i].name === 'tattoos') {
+            // Tattoos are split over multiple tables.
+            tables_to_include = 4;
+        }
+        
+        var num_unobtainable = sections[i].element.parent().nextAll('table').slice(0, tables_to_include).find('.cmplnst-unobtainable').length;
+        if (sections[i].name === 'tattoos') {
+            // Some of these are sequence tattoos, so remove those:
+            num_unobtainable -= 8;
+        }
         if (num_unobtainable === 0) {
             // None unonbtainable, so no work to do!
             continue;
@@ -479,6 +489,4 @@ function updateLabels() {
         
         sections[i].label.text(new_text);
     }
-
-    // Handle tattoos separately:
 }
