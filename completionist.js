@@ -419,6 +419,7 @@ function addSettingsPane() {
     selector.val(selectedValue);
 };
 
+var sections = getSections();
 addSettingsPane();
 updateSelectedItemSet(selectedValue);
 
@@ -438,4 +439,46 @@ function runFilter() {
     
         return unobtained && unobtainable;
     }).addClass('cmplnst-unobtainable').removeAttr('style');
+    
+    updateLabels();
+}
+
+function getSections() {
+    // TODO: The non-labeled sections don't work because they don't have a subheading.
+    var sections = [{name: 'skills'}, /*{name: 'ultrarares'},*/ {name: 'trophies'}, {name: 'familiars'}
+                    /*, {name: 'disc-smithing'}, {name: 'disc-consumption-food'}, name:{'disc-consumption-booze'}*/];
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].element = $('a[name=' + sections[i].name + ']');
+        sections[i].label = sections[i].element.parent().nextAll('p.subheader').first();
+        sections[i].labelText = sections[i].label.text();
+    }
+    
+    return sections;
+}
+
+function updateLabels() {
+    for (var i = 0; i < sections.length; i++) {
+        // Reset the label text.
+        sections[i].label.text(sections[i].labelText);
+        var num_unobtainable = sections[i].element.parent().nextAll('table').first().find('.cmplnst-unobtainable').length;
+        if (num_unobtainable === 0) {
+            // None unonbtainable, so no work to do!
+            continue;
+        }
+        
+        // TODO: Another special case :(
+        var new_text = '';
+        var label_text = sections[i].labelText;
+        if (sections[i].name === 'skills') {
+            var num_found = parseInt(label_text.match(/(\d+)\s*missing/)[1]);
+            new_text = label_text.replace(/\d+\s*missing/, '' + num_found - num_unobtainable + ' missing [' + num_unobtainable + ' unobtainable]');
+        } else {
+            var num_found = parseInt(label_text.match(/missing (\d+)/)[1]);
+            new_text = label_text.replace(/missing \d+/, 'missing ' + (num_found - num_unobtainable) + ' [' + num_unobtainable + ' unobtainable]');
+        }
+        
+        sections[i].label.text(new_text);
+    }
+
+    // Handle tattoos separately:
 }
