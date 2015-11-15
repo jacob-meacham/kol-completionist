@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         KoL Completionist Script
 // @namespace    http://jemonjam.com
-// @version      1.0
+// @version      1.1
 // @description  This script will fill in unobtainable (or virtually unobtainable) items in the various KoL profile pages. Completionists rejoice!
 // @author       jemonjam
 // @include      http*://cheesellc.com/kol/profile.php*
@@ -73,8 +73,9 @@ var unobtainableItems = [
     'Valentine\'s Day cake',
     'Vampire cake',
     'Vanilla-frosted king cake',
-    'Vegas Volcano Laval Roll',
+    'Vegas Volcano Lava Roll',
     'Wedge of gray cheese',
+    'Shoots and leaves',
 
     // Unobtainable booze
     'Acqua Del Piatto Merlot',
@@ -109,7 +110,7 @@ var unobtainableItems = [
     'White-label gin'
 ];
 
-// >100mm 
+// >100mm
 var extremelyExpensiveItems = [
     // IOTM
     'miniscule temporal rip',
@@ -150,27 +151,27 @@ var extremelyExpensiveItems = [
     'Pygmy Bugbear Shaman',
     'Doppelshifter',
     'Attention-Deficit Demon',
-    'Wild Hare',    
+    'Wild Hare',
     'Temporal Riftlet',
     'Nervous Tick',
     'Uniclops',
     'Chauvinist Pig',
-    
+
     // Dump stupid expensive trophies
     '50 bottles of Bloodweiser',
     '50 glasses of electric Kool-Aid.',
-    
+
     // Expensive smithing discoveries
     'Crimbo hat',
     'Crimbo pants',
     'Crimbo sword',
-    
+
     // Skills from IOTM
     'Summon Dice',
     'Summon Hilarious Objects',
     'Summon Snowcones',
     'Summon Stickers',
-    
+
     // Ultrarares
     'Counterclockwise watch',
     'optimal spreadsheet'
@@ -205,13 +206,13 @@ var veryExpensiveItems = [
     'Uncle Hobo\'s highest bough',
     'Uncle Hobo\'s belt',
     'Uncle Hobo\'s Rags',
-    
+
     // Ultrarares
     'Platinum Yendorian Express Card',
     'The Nuge\'s favorite crossbow',
     'hockey stick of furious angry rage',
     'incredibly dense meat gem'
-    
+
 ];
 
 // >30mm
@@ -256,15 +257,15 @@ var expensiveItems = [
     'Cymbal-Playing Monkey',
     'Gluttonous Green Ghost',
     'Disembodied Hand',
-    
+
     // Skills from IOTM
     'Summon Party Favor',
-    
+
     // Ultrarares
     'Talisman of Baio',
     'crazy bastard sword',
     'Talisman of Bakula'
-    
+
 ];
 
 // > 10mm
@@ -372,13 +373,13 @@ var prettyCheapItems = [
     'Summon BRICKOs',
     'Summon Sugar Sheets',
     'Summon Love Song',
-    
+
     // Ultra-rares
     '17-ball',
     'Dallas Dynasty Falcon Crest shield',
     'hypnodisk',
-    
-    
+
+
 ];
 
 var allItems = [unobtainableItems, extremelyExpensiveItems, veryExpensiveItems, expensiveItems, prettyCheapItems];
@@ -388,34 +389,34 @@ var selectedValue = GM_getValue('cmplnst.selector', 3);
 function updateSelectedItemSet(selected_value) {
     selectedValue = selected_value;
     GM_setValue('cmplnst.selector', selectedValue);
-    
+
     currentItemSet = [];
     for (var i = 0; i < selected_value; i++) {
         currentItemSet += allItems[i];
     }
-    
+
     runFilter();
 }
 
-function addSettingsPane() {    
+function addSettingsPane() {
     var select_values = ['Off',
                          'Unobtainable Only',
                          '>100 Million Cost',
                          '>50 Million Cost',
                          '>30 Million Cost',
                          '>10 Million Cost'];
-    
+
     var completionist_pane = $('<div class="cmplnst-pane" />').appendTo('.header');
     $('<div class="cmplnst-header" />').text('Completionist Script').appendTo(completionist_pane);
     var inner = $('<div class="cmplnst-inner" />').appendTo(completionist_pane);
-    
+
     $('<label for="cmplnst-selection" />').text('Filter: ').appendTo(inner);
     var selector = $('<select name="cmplnst-selection" />');
     selector.appendTo(inner).change(function() { updateSelectedItemSet(selector.val()) });
     for (var i = 0; i < select_values.length; i++) {
         var option = $('<option />', {value: i, text: select_values[i]}).appendTo(selector);
     }
-    
+
     selector.val(selectedValue);
 };
 
@@ -428,18 +429,20 @@ GM_addStyle('.cmplnst-pane { float: right; padding: 3px; border: #ddd 1px solid;
             '.cmplnst-inner { padding: 10px; }' +
             '.cmplnst-unobtainable { background-color: rgb(204, 255, 204); opacity: 0.6; }'
            );
-            
+
 
 function runFilter() {
     $('td').removeClass('cmplnst-unobtainable').filter(function() {
         // If not obtained, and in the unobtainable list, return it.
         var background_color = $(this).css('background-color');
-        var unobtained = background_color === 'rgba(0, 0, 0, 0)' || background_color === 'rgb(255, 204, 204)';
-        var unobtainable = $(this).text() && currentItemSet.indexOf($(this).text()) > -1;
-    
+        var unobtained = (background_color === 'rgba(0, 0, 0, 0)' || background_color === 'rgb(255, 204, 204)');
+
+        var text = $.trim($(this).text());
+        var unobtainable = (text && currentItemSet.indexOf(text) > -1);
+
         return unobtained && unobtainable;
     }).addClass('cmplnst-unobtainable').removeAttr('style');
-    
+
     updateLabels();
 }
 
@@ -452,7 +455,7 @@ function getSections() {
         sections[i].label = sections[i].element.parent().nextAll('p.subheader').first();
         sections[i].labelText = sections[i].label.text();
     }
-    
+
     return sections;
 }
 
@@ -465,7 +468,7 @@ function updateLabels() {
             // Tattoos are split over multiple tables.
             tables_to_include = 4;
         }
-        
+
         var num_unobtainable = sections[i].element.parent().nextAll('table').slice(0, tables_to_include).find('.cmplnst-unobtainable').length;
         if (sections[i].name === 'tattoos') {
             // Some of these are sequence tattoos, so remove those:
@@ -475,7 +478,7 @@ function updateLabels() {
             // None unonbtainable, so no work to do!
             continue;
         }
-        
+
         // TODO: Another special case :(
         var new_text = '';
         var label_text = sections[i].labelText;
@@ -486,7 +489,9 @@ function updateLabels() {
             var num_found = parseInt(label_text.match(/missing (\d+)/)[1]);
             new_text = label_text.replace(/missing \d+/, 'missing ' + (num_found - num_unobtainable) + ' [' + num_unobtainable + ' unobtainable]');
         }
-        
+
         sections[i].label.text(new_text);
     }
+
+    // Handle tattoos separately:
 }
