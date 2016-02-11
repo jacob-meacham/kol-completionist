@@ -265,8 +265,11 @@ var expensiveItems = [
     // Ultrarares
     'Talisman of Baio',
     'crazy bastard sword',
-    'Talisman of Bakula'
+    'Talisman of Bakula',
 
+    'time sword',
+    'time helmet',
+    'time trousers'
 ];
 
 // > 10mm
