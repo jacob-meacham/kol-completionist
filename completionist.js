@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         KoL Completionist Script
 // @namespace    http://jemonjam.com
-// @version      1.4
+// @version      1.5
 // @description  This script will fill in unobtainable (or virtually unobtainable) items in the various KoL profile pages. Completionists rejoice!
 // @author       jemonjam
 // @include      http*://cheesellc.com/kol/profile.php*
