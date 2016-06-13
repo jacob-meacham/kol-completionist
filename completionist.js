@@ -269,7 +269,12 @@ var expensiveItems = [
 
     'time sword',
     'time helmet',
-    'time trousers'
+    'time trousers',
+
+    // Food only accessible via quantum taco
+    'idiot brain',
+    'pie man was not meant to eat',
+    'plate of Val-U Brand Every Bean Salad'
 ];
 
 // > 10mm
