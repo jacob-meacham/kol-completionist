@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         KoL Completionist Script
 // @namespace    http://jemonjam.com
-// @version      1.6
+// @version      1.7
 // @description  This script will fill in unobtainable (or virtually unobtainable) items in the various KoL profile pages. Completionists rejoice!
 // @author       jemonjam
 // @include      http*://cheesellc.com/kol/profile.php*
@@ -357,7 +357,7 @@ var items = [
     // Other skills
     { name: 'Rainbow Gravitation', price: 19900000 },
     { name: 'A Crimbo Carol, Ch. 1 (used)', price: 17000000 },
-    { name: 'A Crimbo Carol, Ch. 2 (used)', price: 99000000 },
+    { name: 'A Crimbo Carol, Ch. 2 (used)', price: 9900000 },
 
     // Ultrarares
     { name: 'Counterclockwise watch', price: 100000000 },
