@@ -112,6 +112,36 @@ var items = [
     { name: 'Uovo Marcio Shiraz', price: -1 },
     { name: 'White-label gin', price: -1 },
 
+    // KoL Con
+    { name: 'KoL Con 3-D Glasses', price: -1 },
+    { name: 'KoL Con IV Pole', price: -1 },
+    { name: 'KoL Con Cinco Piñata Bat', price: -1 },
+    { name: 'KoL Con Six Pack', price: -1 },
+    { name: 'Seven Loco', price: -1 },
+    { name: 'KoL Con 8-Bit power bracelet', price: -1 },
+    { name: 'Hat O\' Nine Tails', price: -1 },
+    { name: 'KoL Con X Treasure Map', price: -1 },
+    { name: 'Size XI Wizard\'s Robe', price: -1 },
+    { name: 'KoL Con 12-gauge', price: -1 },
+
+    // Unobtainable Hair Club
+    { name: 'HP-35 Calculator', price: -1 },
+    { name: 'Silver HP-35 Calculator', price: -1 },
+    { name: 'Golden HP-35 Calculator', price: -1 },
+    { name: 'Platinum HP-35 Calculator', price: -1 },
+    { name: 'Super Platinum HP-35 Calculator', price: -1 },
+
+    // consolation ribbon
+    { name: 'consolation ribbon', price: -1 },
+
+    // Twitchery
+    { name: 'Time Bandit Badge of Courage', price: -1 },
+
+    // Rainbow pearl
+    { name: 'rainbow pearl earring', price: -1 },
+    { name: 'rainbow pearl necklace', price: -1 },
+    { name: 'rainbow pearl ring', price: -1 },
+
     // IOTM
     { name: 'miniscule temporal rip', price: 100000000 },
     { name: 'lucky Tam O\'Shanter', price: 100000000 },
@@ -255,6 +285,11 @@ var items = [
     { name: 'sweet nutcracker', price: 10000000 },
     { name: 'Little Geneticist DNA-Splicing Lab', price: 10000000 },
     { name: 'iceberglet', price: 10000000 },
+    { name: 'elvish sunglasses', price: 11000000 },
+    { name: 'little box of fireworks', price: 6666670 },
+    { name: 'cotton candy cocoon', price: 10000000 },
+    { name: 'candy cornucopia', price: 10000000 },
+    { name: 'pilgrim shield', price: 6800000 },
 
     // Familiars from IOTM
     { name: 'Coffee Pixie', price: 100000000 },
@@ -302,6 +337,8 @@ var items = [
     { name: 'Dramatic Hedgehog', price: 10000000 },
     { name: 'Green Pixie', price: 10000000 },
     { name: 'Ancient Yuletide Troll', price: 10000000 },
+    { name: 'Cotton Candy Carnie', price: 10000000 },
+    { name: 'Sugar Fruit Fairy', price: 10000000 },
 
     // Dump stupid expensive trophies
     { name: '50 bottles of Bloodweiser', price: 100000000 },
@@ -316,6 +353,11 @@ var items = [
     { name: 'Summon BRICKOs', price: 10000000 },
     { name: 'Summon Sugar Sheets', price: 10000000 },
     { name: 'Summon Love Song', price: 10000000 },
+
+    // Other skills
+    { name: 'Rainbow Gravitation', price: 19900000 },
+    { name: 'A Crimbo Carol, Ch. 1 (used)', price: 17000000 },
+    { name: 'A Crimbo Carol, Ch. 2 (used)', price: 99000000 },
 
     // Ultrarares
     { name: 'Counterclockwise watch', price: 100000000 },
@@ -345,6 +387,10 @@ var items = [
     { name: 'Crimbo hat', price: 100000000 },
     { name: 'Crimbo pants', price: 100000000 },
     { name: 'Crimbo sword', price: 100000000 },
+
+    // Con items
+    { name: 'Hippo tutu', price: 140000000 },
+    { name: 'Gygaxian Libram', price: 200000000 },
 
     // Food only accessible via quantum taco
     { name: 'idiot brain', price: 30000000 },
