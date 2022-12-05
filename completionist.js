@@ -6,6 +6,7 @@
 // @author       jemonjam
 // @include      http*://cheesellc.com/kol/profile.php*
 // @include      http*://bumcheekcity.com/kol/profile.php*
+// @include      http*://api.aventuristo.net/av-snapshot*
 // @updateURL    https://raw.githubusercontent.com/jacob-meacham/kol-completionist/master/completionist.js
 // @downloadURL  https://raw.githubusercontent.com/jacob-meacham/kol-completionist/master/completionist.js
 // @grant        GM_addStyle
