@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         KoL Completionist Script
 // @namespace    http://jemonjam.com
-// @version      1.7
+// @version      1.8
 // @description  This script will fill in unobtainable (or virtually unobtainable) items in the various KoL profile pages. Completionists rejoice!
 // @author       jemonjam
-// @include      http*://cheesellc.com/kol/profile.php*
-// @include      http*://bumcheekcity.com/kol/profile.php*
-// @include      http*://api.aventuristo.net/av-snapshot*
+// @match        http*://cheesellc.com/kol/profile.php*
+// @match        http*://bumcheekcity.com/kol/profile.php*
+// @match        http*://api.aventuristo.net/av-snapshot*
 // @updateURL    https://raw.githubusercontent.com/jacob-meacham/kol-completionist/master/completionist.js
 // @downloadURL  https://raw.githubusercontent.com/jacob-meacham/kol-completionist/master/completionist.js
 // @grant        GM_addStyle
